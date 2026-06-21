@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Top Crochê Brasil – Fios de Mell</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:       #00BCD4;
+      --teal-dark:  #0097A7;
+      --yellow:     #FFD54F;
+      --yellow-dark:#F9A825;
+      --white:      #ffffff;
+      --text-dark:  #1a1a1a;
+      --text-muted: #555;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: #f4fafb;
+      color: var(--text-dark);
+    }
+
+    /* ── NAVBAR ── */
+    .navbar-fios {
+      background: linear-gradient(90deg, var(--teal) 0%, var(--teal-dark) 100%);
+      padding: 14px 32px;
+    }
+
+    .logo-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      
+    }
+
+    .logo-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--white);
+      letter-spacing: -0.3px;
+    }
+
+    .nav-link-fios {
+      color: rgba(255,255,255,0.85) !important;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: color 0.2s;
+    }
+    .nav-link-fios:hover { color: var(--yellow) !important; }
+
+    /* ── PRODUCT SECTION ── */
+    .product-section {
+      background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+      padding: 48px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .product-section::before {
+      content: '';
+      position: absolute;
+      width: 420px; height: 420px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 50%;
+      top: -120px; right: -80px;
+      pointer-events: none;
+    }
+
+    .product-img-wrap {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-top: 24px;
+    }
+
+    .product-img-wrap img {
+      width: 100%;
+      max-width: 420px;
+      max-height: 380px;
+      object-fit: contain;
+      display: block;
+      filter: drop-shadow(0 16px 32px rgba(0,0,0,0.18));
+      animation: floatImg 4s ease-in-out infinite;
+    }
+
+    @keyframes floatImg {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-10px); }
+    }
+
+    /* ── PRODUCT INFO ── */
+    .product-info {
+      padding: 40px 48px 48px;
+      color: var(--white);
+    }
+
+    .badge-new {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--text-dark);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 14px;
+    }
+
+    .product-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+
+    .product-subtitle {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.82);
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+
+    .price-block {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 16px;
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      backdrop-filter: blur(4px);
+    }
+
+    .price-old {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      text-decoration: line-through;
+      margin-bottom: 2px;
+    }
+
+    .price-main {
+      font-size: 2.6rem;
+      font-weight: 900;
+      color: var(--yellow);
+      line-height: 1;
+    }
+
+    .price-main span {
+      font-size: 1.4rem;
+      vertical-align: super;
+      font-weight: 800;
+    }
+
+    .price-installment {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.75);
+      margin-top: 4px;
+    }
+
+    .size-label {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+
+    .size-options {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+
+    .size-btn {
+      width: 48px; height: 48px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--white);
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .size-btn:hover, .size-btn.active {
+      background: var(--yellow);
+      border-color: var(--yellow);
+      color: var(--text-dark);
+    }
+
+    .btn-buy {
+      background: var(--yellow);
+      color: var(--text-dark);
+      font-weight: 900;
+      font-size: 1.05rem;
+      border: none;
+      border-radius: 14px;
+      padding: 14px 32px;
+      width: 100%;
+      cursor: pointer;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+      margin-bottom: 12px;
+    }
+    .btn-buy:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+      background: var(--yellow-dark);
+    }
+
+    .btn-cart {
+      background: rgba(255,255,255,0.15);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 1.05rem;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 14px;
+      padding: 13px 32px;
+      width: 100%;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .btn-cart:hover {
+      background: rgba(255,255,255,0.25);
+      border-color: rgba(255,255,255,0.7);
+    }
+
+    /* ── DETAILS SECTION ── */
+    .details-section {
+      background: var(--white);
+      padding: 56px 0;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--teal);
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 1.7rem;
+      font-weight: 900;
+      color: var(--text-dark);
+      margin-bottom: 32px;
+    }
+
+    .detail-card {
+      background: #f4fafb;
+      border-radius: 16px;
+      padding: 24px;
+      height: 100%;
+      border-left: 4px solid var(--teal);
+    }
+
+    .detail-icon {
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+
+    .detail-card h5 {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .detail-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* ── FOOTER ── */
+    .footer-fios {
+      background: linear-gradient(90deg, var(--teal-dark) 0%, var(--teal) 100%);
+      padding: 28px 32px;
+      color: rgba(255,255,255,0.75);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .footer-fios strong { color: var(--white); }
+
+    /* ── RESPONSIVE: controlado por @media ── */
+    @media (max-width: 1024px) and (min-width: 768px) {
+      .product-img-wrap { margin-top: 0 !important; padding: 32px 16px 0; }
+      .product-img-wrap img { max-width: 300px; max-height: 300px; }
+      .product-info { padding: 32px 24px 40px; }
+    }
+
+    @media (max-width: 767px) {
+      .navbar-fios  { padding: 12px 16px; }
+      .product-img-wrap { margin-top: 0 !important; padding: 24px 16px 0; }
+      .product-img-wrap img { max-width: 220px; max-height: 220px; }
+      .product-title { font-size: 1.6rem; }
+      .price-main   { font-size: 2rem; }
+      .product-info { padding: 20px 16px 32px; }
+      .btn-buy, .btn-cart { font-size: 0.95rem; padding: 12px 20px; }
+      .size-btn     { width: 42px; height: 42px; font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav class="navbar-fios">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col">
+        <div class="d-flex align-items-center gap-2">
+          <div class="logo-icon" style="width: 64px; height: 64px;">
+            <!-- Substitua pelo caminho da sua logo real -->
+            <img src="img/novelo.png" alt="Fios de Mell"
+              onerror="this.style.display='none';"
+            />
+          </div>
+          <span class="brand-name">Fios de Mell</span>
+        </div>
+      </div>
+      <div class="col-auto d-flex gap-3">
+        <a href="index.html" class="nav-link-fios">Início</a>
+        
+        <a href="https://www.instagram.com/fios_demell/" class="nav-link-fios">Contato</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ── PRODUCT HERO ── -->
+<section class="product-section">
+  <div class="container">
+    <div class="row g-0 align-items-start">
+
+      <!-- Imagem do produto -->
+      <div class="col-12 col-lg-6 product-img-wrap">
+        <img src="img/isqueiro.png" style="max-width: 600px; max-height: 550px;" alt="Top Crochê Brasil – Fios de Mell"
+        />
+      </div>
+
+      <!-- Informações do produto -->
+      <div class="col-12 col-lg-6 product-info">
+        <div class="badge-new">✦ Novo</div>
+
+        <h1 class="product-title">Porta Isqueiro<br/>Brasil</h1>
+        <p class="product-subtitle">
+          Feito à mão com fios de alta qualidade nas cores da nossa bandeira.<br/>
+          Único, artesanal e cheio de identidade.
+        </p>
+
+        <!-- Preço -->
+        <div class="price-block">
+          <div class="price-old">De R$ 49,90</div>
+          <div class="price-main"><span>R$</span> 24<small style="font-size:1.4rem">,90</small></div>
+          <div class="price-installment">ou 2x de R$ 12,45 sem juros</div>
+        </div>
+
+        <!-- Tamanhos -->
+        <div class="size-label">Tamanho</div>
+        <div class="size-options">
+          <button class="size-btn">P</button>
+         
+          <button class="size-btn">G</button>
+         
+        </div>
+
+        <!-- Botões -->
+        <button class="btn-buy">Comprar agora</button>
+        <button class="btn-cart">Adicionar ao carrinho</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── DETALHES ── -->
+<section class="details-section">
+  <div class="container">
+    <div class="row mb-4">
+      <div class="col-12">
+        <div class="section-eyebrow">Sobre o produto</div>
+        <div class="section-title">Feito com cuidado, para durar</div>
+      </div>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="detail-card">
+          <div class="detail-icon">🧶</div>
+          <h5>100% Artesanal</h5>
+          <p>Cada peça é feita à mão com atenção aos detalhes, tornando-a única.</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="detail-card">
+          <div class="detail-icon">🇧🇷</div>
+          <h5>Orgulho Brasileiro</h5>
+          <p>Verde e amarelo que representam nossa cultura e identidade com estilo.</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="detail-card">
+          <div class="detail-icon">✂️</div>
+          <h5>Sob Medida</h5>
+          <p>Disponível nos tamanhos P, M, G e GG. Encomende no seu tamanho ideal.</p>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-3">
+        <div class="detail-card">
+          <div class="detail-icon">🚚</div>
+          <h5>Entrega para todo o Brasil</h5>
+          <p>Enviamos com embalagem especial para sua peça chegar perfeita.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer class="footer-fios">
+  <div class="container">
+    <strong>Fios de Mell</strong> · Artesanato com alma brasileira · © 2025
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.querySelectorAll('.size-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+</script>
+</body>
+</html>
