@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top Crochê Brasil · Fios de Mell</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="produto.css">
+</head>
+
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <a href="#" class="brand">
+      <div class="logo">
+        <img src="img/novelo.png" alt="Logo de novelo de lã" class="logo-icon">
+        <span class="brand-name">Fios de Mell</span>
+      </div>
+      
+    </a>
+    <nav class="main-nav" aria-label="Navegação principal">
+      <a href="index.html">Início</a>
+      <a href="https://www.instagram.com/fios_demell/"">Contato</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="product-hero">
+    <div class="hero-inner">
+
+      <div class="product-media">
+        <div class="media-frame">
+          <img src="img/top.png" alt="Top de crochê com estampa verde e amarela inspirada na bandeira do Brasil" class="product-image" onerror="this.style.display='none'; this.parentElement.classList.add('media-frame--empty')">
+          <span class="stitch-divider" aria-hidden="true"></span>
+        </div>
+      </div>
+
+      <div class="product-info">
+        <span class="badge-new">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="currentColor"/></svg>
+          Novo
+        </span>
+
+        <h1 class="product-title">Top Crochê<br>Brasil</h1>
+
+        <p class="product-description">
+          Feito à mão com fios de alta qualidade nas cores da nossa bandeira.
+          <strong>Único, artesanal e cheio de identidade.</strong>
+        </p>
+
+        <div class="price-card">
+          <span class="price-old">De R$ 109,90</span>
+          <div class="price-row">
+            <span class="price-currency">R$</span>
+            <span class="price-main">90<span class="price-cents">,90</span></span>
+          </div>
+          <span class="price-installment">ou 3× de R$ 30,30 sem juros</span>
+        </div>
+
+        <div class="size-selector">
+          <span class="size-label">Tamanho</span>
+          <div class="size-options" role="radiogroup" aria-label="Selecione o tamanho">
+            <button type="button" class="size-btn" role="radio" aria-checked="false">P</button>
+            <button type="button" class="size-btn is-selected" role="radio" aria-checked="true">M</button>
+            <button type="button" class="size-btn" role="radio" aria-checked="false">G</button>
+            <button type="button" class="size-btn" role="radio" aria-checked="false">GG</button>
+          </div>
+        </div>
+
+        <div class="cta-group">
+          <button type="button" class="btn btn-primary">Comprar agora</button>
+          <button type="button" class="btn btn-secondary">Adicionar ao carrinho</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="about-inner">
+      <span class="eyebrow">Sobre o produto</span>
+      <h2 class="about-title">Feito com cuidado, para durar</h2>
+
+      <div class="feature-grid">
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🧵</span>
+          <h3>100% Artesanal</h3>
+          <p>Cada peça é feita à mão com atenção aos detalhes, tornando-a única.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🇧🇷</span>
+          <h3>Orgulho Brasileiro</h3>
+          <p>Verde e amarelo que representam nossa cultura e identidade com estilo.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">✂️</span>
+          <h3>Sob Medida</h3>
+          <p>Disponível nos tamanhos P, M, G e GG. Encomende no seu tamanho ideal.</p>
+        </article>
+
+        <article class="feature-card">
+          <span class="feature-icon" aria-hidden="true">🚚</span>
+          <h3>Entrega para todo o Brasil</h3>
+          <p>Enviamos com embalagem especial para sua peça chegar perfeita.</p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="contato">
+  <p><strong>Fios de Mell</strong> · Artesanato com alma brasileira · © 2025</p>
+</footer>
+<script>
+  const sizeButtons = document.querySelectorAll('.size-btn');
+
+  sizeButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      sizeButtons.forEach(btn => {
+        btn.classList.remove('is-selected');
+        btn.setAttribute('aria-checked', 'false');
+      });
+
+      button.classList.add('is-selected');
+      button.setAttribute('aria-checked', 'true');
+    });
+  });
+</script>
+
+</body>
+</html>
